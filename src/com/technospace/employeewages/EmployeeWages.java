@@ -23,6 +23,7 @@ public class EmployeeWages {
 		int attendance;
 		int duty_type;
 		double daily_wages = 0;
+		double monthly_wage = 0;
 		final int ABSENT = 0;
 		final int WAGE_PER_HR = 20;
 		final int FULL_TIME_HR = 8;
@@ -34,29 +35,39 @@ public class EmployeeWages {
 		Random random = new Random();
 		attendance = random.nextInt(2);
 		
-		if(attendance == ABSENT)
+		for(int i=1 ; i <= 20 ; i++)
 		{
-			System.out.println("Employee is absent.");
-		}	else{
-			System.out.println("Employee is present.");
+			System.out.println("Days :"+i);
+			daily_wages = 0;
+			attendance = random.nextInt(2);
+			System.out.println("Attendance :"+attendance);
 			
-			duty_type = random.nextInt(2);
-			switch(duty_type)
+			if(attendance == ABSENT)
 			{
-				case PART_TIME:
-				System.out.println("Employee is part time.");
-				daily_wages = WAGE_PER_HR * PART_TIME_HR;
-				break;
+				System.out.println("Employee is absent.");
+			}	else{
+				System.out.println("Employee is present.");
 				
-				case FULL_TIME:
-				System.out.println("Employee is full time.");
-				daily_wages = WAGE_PER_HR * FULL_TIME_HR;
-				break;
+				duty_type = random.nextInt(2);
+				switch(duty_type)
+				{
+					case PART_TIME:
+					System.out.println("Employee is part time.");
+					daily_wages = WAGE_PER_HR * PART_TIME_HR;
+					break;
+					
+					case FULL_TIME:
+					System.out.println("Employee is full time.");
+					daily_wages = WAGE_PER_HR * FULL_TIME_HR;
+					break;
+				}
 			}
+			
+			System.out.println("Daily Wages :$"+daily_wages);
+			monthly_wage = monthly_wage + daily_wages;
+			System.out.println("##########################");
 		}
-		
-		System.out.println("Daily Wages :$"+daily_wages);
-		
+			System.out.println("Monthly Wages =$"+monthly_wage);
 	}
-
+	
 }
