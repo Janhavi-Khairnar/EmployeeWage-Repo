@@ -28,6 +28,8 @@ public class EmployeeWages {
 		final int FULL_TIME_HR = 8;
 		final int PART_TIME_HR = 4;
 		final int PART_TIME_DUTY = 0;
+		final int PART_TIME = 0;
+		final int FULL_TIME= 1;
 		
 		Random random = new Random();
 		attendance = random.nextInt(2);
@@ -37,14 +39,19 @@ public class EmployeeWages {
 			System.out.println("Employee is absent.");
 		}	else{
 			System.out.println("Employee is present.");
+			
 			duty_type = random.nextInt(2);
-			if(duty_type == PART_TIME_DUTY)
+			switch(duty_type)
 			{
+				case PART_TIME:
 				System.out.println("Employee is part time.");
 				daily_wages = WAGE_PER_HR * PART_TIME_HR;
-			}	else{
+				break;
+				
+				case FULL_TIME:
 				System.out.println("Employee is full time.");
 				daily_wages = WAGE_PER_HR * FULL_TIME_HR;
+				break;
 			}
 		}
 		
